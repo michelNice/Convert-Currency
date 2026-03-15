@@ -1,6 +1,7 @@
-//import { convertCurrency } from './currencyService'
 import { convertCurrency } from "./currencyService.js";
+import {populateCurrencySelect} from "./moedas.js"
 
+populateCurrencySelect()
 
 convertCurrency({
   amount:100,

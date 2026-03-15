@@ -1,4 +1,3 @@
-//const input = document.querySelector<HTMLInputElement>('#amount')
 export async function convertCurrency(request) {
     const url = "https://api.exchangerate-api.com/v4/latest/";
     try {

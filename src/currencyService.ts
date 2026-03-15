@@ -1,8 +1,5 @@
 import type { currencyConversionRequest, currencyConversionResult } from "./types";
 
-
-//const input = document.querySelector<HTMLInputElement>('#amount')
-
 export async function convertCurrency(
   request: currencyConversionRequest
 ): Promise<currencyConversionResult>{
