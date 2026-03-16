@@ -1,12 +1,16 @@
 import { convertCurrency } from "./currencyService.js";
-import {populateCurrencySelect} from "./moedas.js"
+import { init } from "./dom.js";
 
-populateCurrencySelect()
+document.addEventListener('DOMContentLoaded',()=> {
+  init();
 
-convertCurrency({
+  convertCurrency({
   amount:100,
   fromCurrency:"USD",
   toCurrency:"BRL"
 }).then(result => console.log(result)).catch(error => {
     console.error("Error ", error)
 })
+
+})
+

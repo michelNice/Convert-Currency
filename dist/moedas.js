@@ -1,4 +1,4 @@
-export function populateCurrencySelect() {
+export function populateCurrencySelect(fromSelect, toSelect) {
     const currencyList = {
         USA: { name: 'United States dollar', symbol: '$', value: 1.0 },
         EUR: { name: "Euro", symbol: "€", value: 0.92 },
@@ -11,8 +11,6 @@ export function populateCurrencySelect() {
         CNY: { name: "Chinese Yuan", symbol: "¥", value: 7.20 },
         RUB: { name: "Russian Ruble", symbol: "₽", value: 90.00 }
     };
-    const fromSelect = document.getElementById('from');
-    const toSelect = document.getElementById('to');
     Object.entries(currencyList).forEach(([code, currency]) => {
         const options1 = document.createElement('option');
         options1.value = code;
