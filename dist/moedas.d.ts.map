@@ -1,1 +1,1 @@
-{"version":3,"file":"moedas.d.ts","sourceRoot":"","sources":["../src/moedas.ts"],"names":[],"mappings":"AAAA,wBAAgB,sBAAsB,CACnC,UAAU,EAAC,iBAAiB,EAC5B,QAAQ,EAAC,iBAAiB,QAoC5B"}
+{"version":3,"file":"moedas.d.ts","sourceRoot":"","sources":["../src/moedas.ts"],"names":[],"mappings":"AAAA,wBAAgB,sBAAsB;;;IAqBrC"}

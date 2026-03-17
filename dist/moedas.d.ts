@@ -1,2 +1,5 @@
-export declare function populateCurrencySelect(fromSelect: HTMLSelectElement, toSelect: HTMLSelectElement): void;
+export declare function populateCurrencySelect(): {
+    code: string;
+    symbol: string;
+}[];
 //# sourceMappingURL=moedas.d.ts.map
