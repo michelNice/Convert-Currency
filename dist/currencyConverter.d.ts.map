@@ -1,0 +1,1 @@
+{"version":3,"file":"currencyConverter.d.ts","sourceRoot":"","sources":["../src/currencyConverter.ts"],"names":[],"mappings":"AACA,OAAO,KAAK,EAAE,yBAAyB,EAAE,wBAAwB,EAAE,MAAM,SAAS,CAAC;AACnF,qBAAa,iBAAiB;IAE1B,OAAO,CAAC,OAAO,CAAgC;;IAQzC,OAAO,CACb,OAAO,EAAE,yBAAyB,GAChC,OAAO,CAAC,wBAAwB,CAAC;IAWrC,OAAO,CAAC,WAAW;IAGnB,UAAU,IAAG,wBAAwB,EAAE;CAGxC"}

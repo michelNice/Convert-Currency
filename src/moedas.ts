@@ -1,7 +1,7 @@
 export function populateCurrencySelect(){
 
     const currencyList = {
-    USA:{name:'United States dollar',symbol: '$',value:1.0},
+    USD:{name:'United States dollar',symbol: '$',value:1.0},
     EUR: { name: "Euro", symbol: "€", value: 0.92 },
     GBP: { name: "Pound sterling", symbol: "£", value: 0.80 },
     BRL: { name: "Brazilian Real", symbol: "R$", value: 5.00 },

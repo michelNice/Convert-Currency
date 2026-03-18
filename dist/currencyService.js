@@ -4,7 +4,6 @@ export async function convertCurrency(request) {
         const response = await fetch(`${url}${request.fromCurrency}`);
         const data = await response.json();
         const rate = data.rates[request.toCurrency];
-        console.log(data);
         if (!rate) {
             throw new Error(request.toCurrency);
         }

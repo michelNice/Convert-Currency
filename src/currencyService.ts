@@ -11,8 +11,6 @@ export async function convertCurrency(
 
        const rate = data.rates[request.toCurrency]
 
-       console.log(data)
-
        if(!rate){
          throw new Error(request.toCurrency)
        }

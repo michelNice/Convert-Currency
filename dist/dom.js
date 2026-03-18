@@ -1,11 +1,5 @@
 import { populateCurrencySelect } from "./moedas.js";
-document.getElementById('convert')?.addEventListener('click', async () => {
-    const input = document.getElementById('amount');
-    const amount = +input.value;
-    input.value = '';
-    const to = document.getElementById('from').value;
-    const from = document.getElementById('to').value;
-});
+import { convertCurrency } from "./currencyService.js";
 export function init() {
     const toSelect = document.getElementById('to');
     const fromSelect = document.getElementById('from');
@@ -19,6 +13,20 @@ export function init() {
         options2.textContent = `${code} - ${symbol}`;
         fromSelect.appendChild(options1);
         toSelect.appendChild(options2);
+    });
+    document.getElementById('convert')?.addEventListener('click', async () => {
+        const input = document.getElementById('amount');
+        const to = toSelect.value;
+        const from = fromSelect.value;
+        const amount = +input.value;
+        input.value = '';
+        console.log(amount);
+        const result = await convertCurrency({
+            amount,
+            fromCurrency: from,
+            toCurrency: to
+        });
+        console.log(result);
     });
 }
 document.addEventListener('DOMContentLoaded', init);

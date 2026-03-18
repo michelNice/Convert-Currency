@@ -1,26 +1,7 @@
 import { populateCurrencySelect } from "./moedas.js"
-
- 
-
-  document.getElementById('convert')?.addEventListener('click',async()=> {
-    const input = document.getElementById('amount') as HTMLInputElement
-
-    const amount = +input.value
-
-    input.value = ''
-    
-    
-    const to =  (document.getElementById('from') as HTMLSelectElement).value
-
-    const from = (document.getElementById('to') as HTMLSelectElement).value
-
-
- })
-
-
+import { convertCurrency } from "./currencyService.js"
 
 export function init(){
-  
 
   const toSelect = document.getElementById('to') as HTMLSelectElement
   const fromSelect = document.getElementById('from') as HTMLSelectElement
@@ -44,6 +25,29 @@ export function init(){
      fromSelect.appendChild(options1)
      toSelect.appendChild(options2)
   })
+
+   document.getElementById('convert')?.addEventListener('click',async()=> {
+    const input = document.getElementById('amount') as HTMLInputElement
+
+    const to = toSelect.value
+
+    const from = fromSelect.value
+
+    const amount = +input.value
+
+    input.value = ''
+
+    console.log(amount)
+
+   const result = await convertCurrency({
+      amount,
+      fromCurrency:from,
+      toCurrency:to
+   });
+
+   console.log(result)
+
+ })
 
 }
 
