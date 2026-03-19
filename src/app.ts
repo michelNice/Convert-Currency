@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded',()=> {
   amount:100,
   fromCurrency:"USD",
   toCurrency:"BRL"
-}).then(result => console.log(result)).catch(error => {
+}).then(result => result).catch(error => {
     console.error("Error ", error)
 })
 

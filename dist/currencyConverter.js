@@ -1,4 +1,4 @@
-import { convertCurrency } from "./currencyService";
+import { convertCurrency } from "./currencyService.js";
 export class CurrencyConverter {
     constructor() {
         this.history = [];
@@ -9,6 +9,7 @@ export class CurrencyConverter {
         const result = await convertCurrency(request);
         this.history.push(result);
         this.saveHistory();
+        console.log(result);
         return result;
     }
     saveHistory() {
@@ -18,5 +19,4 @@ export class CurrencyConverter {
         return this.history;
     }
 }
-const test = new CurrencyConverter();
 //# sourceMappingURL=currencyConverter.js.map

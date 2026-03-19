@@ -1,6 +1,5 @@
 import { populateCurrencySelect } from "./moedas.js"
-import { convertCurrency } from "./currencyService.js"
-
+import { CurrencyConverter } from "./currencyConverter.js"
 export function init(){
 
   const toSelect = document.getElementById('to') as HTMLSelectElement
@@ -26,8 +25,26 @@ export function init(){
      toSelect.appendChild(options2)
   })
 
-   document.getElementById('convert')?.addEventListener('click',async()=> {
-    const input = document.getElementById('amount') as HTMLInputElement
+  const convertt = new CurrencyConverter()
+
+   const input = document.getElementById('amount') as HTMLInputElement
+
+  input.addEventListener('input', (e)=> {
+         
+          const target = e.target as HTMLInputElement
+          const formatter = new Intl.NumberFormat('en-US', {minimumIntegerDigits: 2, maximumFractionDigits:2})
+
+           let digits =  target.value.replace(/\D/g, '');
+
+           let cents = parseInt(digits,10) || 0;
+
+            target.value = formatter.format(cents / 100);
+
+    })
+
+   document.getElementById('convert')?.addEventListener('click',async(e)=> {
+   //const input = document.getElementById('amount') as HTMLInputElement
+    const error = document.getElementById('error') as HTMLParagraphElement
 
     const to = toSelect.value
 
@@ -35,11 +52,14 @@ export function init(){
 
     const amount = +input.value
 
+    if(!input.value || isNaN(amount) || amount <= 0){ 
+      error.textContent = "Digite um valor válido maior que 0"
+    }
     input.value = ''
 
-    console.log(amount)
+    input.value = '0,00'
 
-   const result = await convertCurrency({
+   const result = await convertt.convert({
       amount,
       fromCurrency:from,
       toCurrency:to
