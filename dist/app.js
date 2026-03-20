@@ -1,5 +1,5 @@
 import { convertCurrency } from "./currencyService.js";
-import { init } from "./dom.js";
+import { init } from "./appController.js";
 document.addEventListener('DOMContentLoaded', () => {
     init();
     convertCurrency({
