@@ -1,0 +1,37 @@
+button {
+  padding: 0.4rem 2rem;
+  background: #0F5C66;
+  color: #E0E0E0;
+  border: 0;
+  cursor: pointer;
+}
+
+button i {
+  font-size: 1rem;
+}
+
+select,
+input {
+  padding: 0.4rem;
+}
+
+input {
+  text-align: right;
+}
+
+.container {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+}
+.container .currency_box {
+  display: flex;
+  flex-direction: column;
+}
+.container .box_button {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/*# sourceMappingURL=main.css.map */
