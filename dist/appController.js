@@ -4,6 +4,9 @@ export function init() {
     const toSelect = document.getElementById('to');
     const fromSelect = document.getElementById('from');
     const swapBtn = document.getElementById('swap');
+    const convertBtn = document.getElementById('convert');
+    const input = document.getElementById('amount');
+    const error = document.getElementById('error');
     const currencies = populateCurrencySelect();
     currencies.forEach(({ code, symbol }) => {
         const option1 = document.createElement('option');
@@ -16,8 +19,6 @@ export function init() {
         toSelect.appendChild(option2);
     });
     const convertt = new CurrencyConverter();
-    const input = document.getElementById('amount');
-    const error = document.getElementById('error');
     input.value = '0,00';
     input.addEventListener('input', (e) => {
         const target = e.target;
@@ -30,7 +31,7 @@ export function init() {
         target.value = formatter.format(cents / 100);
     });
     // botão converter
-    document.getElementById('convert')?.addEventListener('click', async () => {
+    convertBtn?.addEventListener('click', async () => {
         const res = document.getElementById('result');
         const to = toSelect.value;
         const from = fromSelect.value;

@@ -6,6 +6,9 @@ export function init(){
   const toSelect = document.getElementById('to') as HTMLSelectElement
   const fromSelect = document.getElementById('from') as HTMLSelectElement
   const swapBtn = document.getElementById('swap') as HTMLButtonElement
+  const convertBtn =   document.getElementById('convert') as HTMLButtonElement
+  const input = document.getElementById('amount') as HTMLInputElement
+  const error = document.getElementById('error') as HTMLParagraphElement
   
   const currencies = populateCurrencySelect()
 
@@ -24,8 +27,7 @@ export function init(){
 
   const convertt = new CurrencyConverter()
 
-  const input = document.getElementById('amount') as HTMLInputElement
-  const error = document.getElementById('error') as HTMLParagraphElement
+
 
 
   input.value = '0,00'
@@ -45,7 +47,7 @@ export function init(){
   })
 
   // botão converter
-  document.getElementById('convert')?.addEventListener('click', async () => {
+convertBtn?.addEventListener('click', async () => {
 
     const res = document.getElementById('result')
 

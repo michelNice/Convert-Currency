@@ -1,51 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="styles/main.css">
-    <title>Currency convert</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <title>Currency convert</title>
 </head>
 <body>
-        <h1>Currency Converter</h1>
-      <div class="container">
-                <div class="currency_box">
-    <label for="amount">amount</label>
-    <input id="amount" type="text">
+
+  <h1>Currency Converter</h1>
+
+  <div class="container">
+
+    <div class="currency_box">
+      <label for="amount">amount</label>
+      <input id="amount" type="text">
+    </div>
+
+    <div class="currency_box">
+      <label for="from">from</label>
+      <select name="from" id="from"></select> 
+    </div>
+
+    <button id="swap" type="button">
+      <i class="fa-solid fa-money-bill-transfer"></i>
+    </button>
+
+    <div class="currency_box">
+      <label for="to">to</label>
+      <select name="to" id="to"></select> 
+    </div>
+
+    <div class="box_button">
+      <button id="convert" type="button">
+        <i class="fa-solid fa-arrows-rotate"></i>
+      </button>
+    </div>
+
   </div>
-        <div class="currency_box">
-            <label for="from">from</label>
-             <select name="from" id="from"></select> 
-        </div>
-      
-        
-        <button id="swap">
-             <i class="fa-solid fa-money-bill-transfer"></i>
-        </button>
-        <div class="box_button">
-         <div class="currency_box">
-            <label for="to">to</label>
-           <select name="to" id="to"></select> 
-        </div>
-        
 
-        </div>
-       
+  <p id="error"></p>
+  <p id="result"></p>
 
-        </select>
-        <div class="box_button">
-            <button id="convert">
-            <i class="fa-solid fa-arrows-rotate"></i>
-        </button>
-        </div>
-        
-
-      </div>
-       
-        <p id="error"></p>
-
-        <p id="result"></p>
+  <script type="module" src="./dist/app.js"></script>
 </body>
-<script type="module" src="./dist/app.js"></script>
 </html>
