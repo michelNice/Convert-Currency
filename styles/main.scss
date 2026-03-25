@@ -1,45 +1,133 @@
-$buttonBgColor:#0F5C66;
-$colorButton:#E0E0E0;
-button{
-    padding:0.4rem 2rem;
-    background:$buttonBgColor;
-    color: #E0E0E0;
-    border: 0;
-    cursor: pointer;
-}
+$buttonBgColor: #0F5C66;
+$colorButton: #E0E0E0;
+$white:#fff;
 
-button i{
-    font-size: 1rem;
-}
 
-select{
-    //width: 20%;
-}
-
-select,
-input{
-    padding:0.4rem;
-}
-input{
-    text-align:right;
-}
-
-    .container{
+@mixin flex{
     display: flex;
-    align-items:flex-end;
-    gap:1rem;
-    
-    .currency_box{
-        display: flex;
-        flex-direction: column;
-    }
+    flex-direction: column;
+}
 
-    .box_button{
-        display: flex;
-        flex-direction: column;
-        justify-content:flex-end;
+body {
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:90vh;
+  margin-top: 50px;
+}
 
-    }
+.container_currency {
+  border: 1px solid #ccc;
+  width: 900px;
+  padding: 1.5rem;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+
+/* ===== ERROR FIX ===== */
+#error {
+  min-height: 24px; 
+  color: red;
+  margin: 10px 0;
+}
+
+/* ===== INPUT AREA ===== */
+.container {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  background: #eee;
+  padding: 1rem;
+
+  .currency_box {
+    @include flex();
+    flex: 1;
+  }
+
+  .box_button {
+    @include flex();
+    justify-content: flex-end;
+  }
+}
+
+input,
+select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+
+}
+
+input {text-align: right;}
+
+/* ===== BUTTON ===== */
+button {
+  padding: 0.5rem 1.2rem;
+  background: $buttonBgColor;
+  color: $colorButton;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+
+  &:hover {opacity: 0.9;}
+}
+
+button i {font-size: 1rem;}
+
+/* ===== RESULT ===== */
+.box_result {
+  display: flex;
+  justify-content: space-between;
+  .box_item {
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    background: $white;
+  }
 }
 
 
+
+
+@media (max-width: 60rem) {
+
+  body {
+    height: auto;
+    margin-top: 20px;
+  }
+
+  .container_currency {
+    width: 95%;
+    padding: 1rem;
+  }
+
+ 
+  .container {
+    flex-direction: column; 
+    align-items: stretch;
+
+    .currency_box {
+      width: 100%;
+    }
+
+    button {
+      width: 100%;
+    }
+  }
+
+ 
+  #swap {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+
+  
+  .box_result {
+    flex-direction: column;
+    gap: 1rem;
+
+    .box_item {
+      width: 100%;
+    }
+  }
+}

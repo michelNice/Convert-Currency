@@ -3,33 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- ICONS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <link rel="stylesheet" href="styles/main.css">
-  <title>Currency convert</title>
+
+  <title>Currency Converter</title>
 </head>
 <body>
+
+<div class="container_currency">
 
   <h1>Currency Converter</h1>
 
   <div class="container">
 
     <div class="currency_box">
-      <label for="amount">amount</label>
-      <input id="amount" type="text">
+      <label for="amount">Amount</label>
+      <input id="amount" type="text" placeholder="0.00">
     </div>
 
     <div class="currency_box">
-      <label for="from">from</label>
-      <select name="from" id="from"></select> 
+      <label for="from">From</label>
+      <select id="from"></select> 
     </div>
 
     <button id="swap" type="button">
-      <i class="fa-solid fa-money-bill-transfer"></i>
+      <i class="fa-solid fa-right-left"></i>
     </button>
 
     <div class="currency_box">
-      <label for="to">to</label>
-      <select name="to" id="to"></select> 
+      <label for="to">To</label>
+      <select id="to"></select> 
     </div>
 
     <div class="box_button">
@@ -42,14 +51,25 @@
 
   <h2>Exchange result</h2>
 
-  <p id="error"></p>
-  <div>Converted amount: <span></span></div>
-  <div>Amount to convert  <span>1,00</span></div>
+  <!-- 🔥 espaço fixo pro erro -->
+  <div id="error"></div>
 
+  <div class="box_result">
 
-  <div>To: <span></span></div>
-  <div>Converted amount <span id="result">1,00</span></div>
+    <div class="box_item">
+      <div>From: <span id="fromText"></span></div>
+      <div>Original amount: <span id="amountText">0,00</span></div>
+    </div>
 
-  <script type="module" src="./dist/app.js"></script>
+    <div class="box_item">
+      <div>To: <span id="toText"></span></div>
+      <div>Result: <span id="result">0,00</span></div>
+    </div>
+
+  </div>
+
+</div>
+
+<script type="module" src="./dist/app.js"></script>
 </body>
 </html>

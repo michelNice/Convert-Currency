@@ -7,6 +7,9 @@ export function init() {
     const convertBtn = document.getElementById('convert');
     const input = document.getElementById('amount');
     const error = document.getElementById('error');
+    const resultFrom = document.getElementById('fromText');
+    const resultTo = document.getElementById('toText');
+    const amountOriginal = document.getElementById('amountText');
     const currencies = populateCurrencySelect();
     currencies.forEach(({ code, symbol }) => {
         const option1 = document.createElement('option');
@@ -49,16 +52,19 @@ export function init() {
         }
         // limpa erro
         error.textContent = '';
+        resultFrom.textContent = fromSelect.value;
+        resultTo.textContent = toSelect.value;
         const result = await convertt.convert({
             amount,
             fromCurrency: from,
             toCurrency: to
         });
-        res.textContent = new Intl.NumberFormat('pt-BR', {
+        const formatter = new Intl.NumberFormat('pt-BR', {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2
-        }).format(result.convertedAmount);
-        //input.value = '0,00'
+        });
+        res.textContent = `${formatter.format(result.convertedAmount)}`;
+        amountOriginal.textContent = `${formatter.format(amount)}`;
     });
     swapBtn?.addEventListener('click', () => {
         [fromSelect.value, toSelect.value] = [toSelect.value, fromSelect.value];
@@ -67,5 +73,4 @@ export function init() {
         }
     });
 }
-//document.addEventListener('DOMContentLoaded', init)
 //# sourceMappingURL=appController.js.map

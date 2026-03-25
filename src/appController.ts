@@ -9,7 +9,9 @@ export function init(){
   const convertBtn =   document.getElementById('convert') as HTMLButtonElement
   const input = document.getElementById('amount') as HTMLInputElement
   const error = document.getElementById('error') as HTMLParagraphElement
-  
+  const resultFrom = document.getElementById('fromText') as HTMLSpanElement
+  const resultTo = document.getElementById('toText') as HTMLSpanElement
+  const amountOriginal = document.getElementById('amountText') as HTMLSpanElement
   const currencies = populateCurrencySelect()
 
   currencies.forEach(({ code, symbol }) => {
@@ -20,9 +22,10 @@ export function init(){
     const option2 = document.createElement('option')
     option2.value = code
     option2.textContent = `${code} - ${symbol}`
-
+    
     fromSelect.appendChild(option1)
     toSelect.appendChild(option2)
+
   })
 
   if(currencies.length >= 2){
@@ -60,6 +63,7 @@ convertBtn?.addEventListener('click', async () => {
     const digits = input.value.replace(/\D/g, '')
     const amount = parseInt(digits, 10) / 100
 
+  
     // validação
     if (isNaN(amount) || amount <= 0) {
       error.textContent = "Digite um valor válido maior que 0"
@@ -69,18 +73,22 @@ convertBtn?.addEventListener('click', async () => {
     // limpa erro
     error.textContent = ''
 
+     resultFrom.textContent = fromSelect.value
+     resultTo.textContent = toSelect.value
+
     const result = await convertt.convert({
       amount,
       fromCurrency: from,
       toCurrency: to
     })
 
-    res!.textContent = new Intl.NumberFormat('pt-BR', {
-  minimumFractionDigits: 2,
-  maximumFractionDigits: 2
-}).format(result.convertedAmount)
-
-    //input.value = '0,00'
+    const formatter = new Intl.NumberFormat('pt-BR', {
+       minimumFractionDigits: 2,
+       maximumFractionDigits: 2
+   })
+    res!.textContent = `${formatter.format(result.convertedAmount)}`
+    amountOriginal!.textContent = `${formatter.format(amount)}`
+    
   })
 
 swapBtn?.addEventListener('click', () => {
@@ -94,5 +102,5 @@ swapBtn?.addEventListener('click', () => {
 })
 
 }
-//document.addEventListener('DOMContentLoaded', init)
+
 
