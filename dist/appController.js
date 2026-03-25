@@ -18,6 +18,10 @@ export function init() {
         fromSelect.appendChild(option1);
         toSelect.appendChild(option2);
     });
+    if (currencies.length >= 2) {
+        fromSelect.value = currencies[1].code;
+        toSelect.value = currencies[0].code;
+    }
     const convertt = new CurrencyConverter();
     input.value = '0,00';
     input.addEventListener('input', (e) => {
@@ -35,7 +39,6 @@ export function init() {
         const res = document.getElementById('result');
         const to = toSelect.value;
         const from = fromSelect.value;
-        // 🔥 mesma lógica do input (CORRETO)
         const digits = input.value.replace(/\D/g, '');
         const amount = parseInt(digits, 10) / 100;
         // validação
@@ -55,9 +58,8 @@ export function init() {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2
         }).format(result.convertedAmount);
-        input.value = '0,00';
+        //input.value = '0,00'
     });
-    //Problem swap
     swapBtn?.addEventListener('click', () => {
         [fromSelect.value, toSelect.value] = [toSelect.value, fromSelect.value];
         if (input.value !== '0,00') {
@@ -65,5 +67,5 @@ export function init() {
         }
     });
 }
-document.addEventListener('DOMContentLoaded', init);
+//document.addEventListener('DOMContentLoaded', init)
 //# sourceMappingURL=appController.js.map

@@ -25,10 +25,13 @@ export function init(){
     toSelect.appendChild(option2)
   })
 
+  if(currencies.length >= 2){
+
+    fromSelect.value = currencies[1]!.code
+    toSelect.value = currencies[0]!.code
+  }
+
   const convertt = new CurrencyConverter()
-
-
-
 
   input.value = '0,00'
 
@@ -54,7 +57,6 @@ convertBtn?.addEventListener('click', async () => {
     const to = toSelect.value
     const from = fromSelect.value
 
-    // 🔥 mesma lógica do input (CORRETO)
     const digits = input.value.replace(/\D/g, '')
     const amount = parseInt(digits, 10) / 100
 
@@ -78,11 +80,8 @@ convertBtn?.addEventListener('click', async () => {
   maximumFractionDigits: 2
 }).format(result.convertedAmount)
 
-    input.value = '0,00'
+    //input.value = '0,00'
   })
-
-
-  //Problem swap
 
 swapBtn?.addEventListener('click', () => {
 
@@ -93,7 +92,7 @@ swapBtn?.addEventListener('click', () => {
   }
 
 })
-}
 
-document.addEventListener('DOMContentLoaded', init)
+}
+//document.addEventListener('DOMContentLoaded', init)
 
