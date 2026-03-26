@@ -1,6 +1,5 @@
 import { populateCurrencySelect } from "./moedas.js"
 import { CurrencyConverter } from "./currencyConverter.js"
-
 export function init(){
 
   const toSelect = document.getElementById('to') as HTMLSelectElement
@@ -98,7 +97,6 @@ swapBtn?.addEventListener('click', () => {
   if(input.value !== '0,00'){
            document.getElementById('convert')?.click()
   }
-
 })
 
 }
