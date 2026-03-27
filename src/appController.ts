@@ -13,7 +13,7 @@ export function init(){
   const amountOriginal = document.getElementById('amountText') as HTMLSpanElement
   const currencies = populateCurrencySelect()
 
-  currencies.forEach(({ code, symbol }) => {
+  currencies.forEach(({ code, symbol}) => {
     const option1 = document.createElement('option')
     option1.value = code
     option1.textContent = `${code} - ${symbol}`
